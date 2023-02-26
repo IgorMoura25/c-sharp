@@ -17,6 +17,8 @@ namespace Delegates
             {
                 options.UsarTalCoisa = true;
                 options.ConfigurarOutraCoisa();
+
+                return options;
             });
 
             // Lambda expression
@@ -39,9 +41,9 @@ namespace Delegates
             Console.WriteLine("Hello, World!");
         }
 
-        public static void ConfigurarFramework(Action<FrameworkOptions> options)
+        public static void ConfigurarFramework(Func<FrameworkOptions, FrameworkOptions> options)
         {
-            // ...
+            var teste = options.Invoke(new FrameworkOptions());
         }
 
         public static void WriteMessage(string message)
